@@ -5,27 +5,33 @@
 
 #pragma once
 
-#include <cstdint>
-#include <cstddef>
+#include <stack>
+#include <map>
+#include <functional>
+#include "Types.hpp"
 
 namespace abi {
 
-  using byte_t = uint8_t;
-
   class Interpreter
   {
+    using Operations_t = std::map<byte_t, std::function<void(Interpreter& interpreter)>>;
   public:
     Interpreter();
     virtual ~Interpreter() {}
 
     void run(byte_t* code, size_t size);
 
-  private:
-    static const size_t MEMORY_SIZE = 30000;
-    byte_t memory[MEMORY_SIZE];
+    std::stack<byte_t*> returnStack;
 
     byte_t* memoryPointer;
     byte_t* instructionPointer { nullptr };
+  private:
+
+    static const size_t MEMORY_SIZE = 30000;
+    byte_t memory[MEMORY_SIZE];
+
+    Operations_t operations;
+
   };
 
 }

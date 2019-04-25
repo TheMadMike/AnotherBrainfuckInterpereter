@@ -15,8 +15,8 @@ int main(int argc, char* argv[]){
 
   abi::Interpreter interpreter;
 
-  //TEST: should throw exception
-  abi::byte_t code [4] = { 0x08, 0x00, 0x00, 0xff};
+  //test
+  abi::byte_t code [4] = {0, 0, 0, 0};
 
   interpreter.run(code, 4);
 
