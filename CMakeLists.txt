@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(SOURCES
 src/main.cpp
 src/Interpreter.cpp
+src/CodeLoader.cpp
 )
 
 add_executable(abi ${SOURCES})
