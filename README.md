@@ -6,7 +6,7 @@ Just another boring "Brainfuck" programming language interpreter written in C++.
 
 Build dependencies:
 
-- C++ compiler with support of at least c++14 support
+- C++ compiler with c++14 support
 
 
 
